@@ -1,24 +1,98 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>JarvProject</title>
   <style>
+    /* Базовые стили для крутого темного фона и центрирования */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d1117; /* Глубокий темный (как на GitHub) */
+      color: #c9d1d9; /* Мягкий белый текст */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Контейнер по центру */
+    .container {
+      text-align: center;
+      padding: 40px;
+      background: #161b22; /* Контрастная карточка */
+      border: 1px solid #30363d; /* Тонкая стильная рамка */
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* Плавная тень */
+      max-width: 450px;
+      width: 100%;
+    }
+
+    /* Ваш оригинальный шрифт и класс для заголовка */
     .h1 {
       font-family: "Ubuntu Mono", monospace;
       font-weight: 400;
       font-style: normal;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: #58a6ff; /* Красивый неоново-синий акцент */
+    }
+
+    /* Стилизация текста внутри заголовка */
+    .h1 span {
+      position: relative;
+    }
+
+    /* Футуристичная кнопка */
+    .btn-projects {
+      font-family: "Ubuntu Mono", monospace; /* Применили моноширинный стиль и к кнопке */
+      font-size: 1rem;
+      color: #ffffff;
+      background-color: #238636; /* Фирменный зеленый */
+      border: 1px solid rgba(240, 246, 252, 0.1);
+      border-radius: 6px;
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Эффект при наведении */
+    .btn-projects:hover {
+      background-color: #2ea44f;
+      transform: translateY(-2px); /* Кнопка слегка приподнимается */
+      box-shadow: 0 5px 12px rgba(46, 164, 79, 0.4); /* Зеленое свечение */
+    }
+
+    /* Эффект при нажатии */
+    .btn-projects:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
-  <div>
+
+  <div class="container">
     <h1 class="h1"><span>Hello, that's JarvProject!</span></h1>
-    <button onclick="window.location.href='projects.html'">See projects</button>
+    <!-- Добавлен id="btn" и класс для стилей -->
+    <button id="btn" class="btn-projects" onclick="window.location.href='projects.html'">See projects</button>
   </div>
+
   <script>
     const btn = document.getElementById("btn");
 
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      // Предотвращаем моментальный переход, чтобы успел отработать console.log
+      e.preventDefault(); 
       console.log("Starting button 'btn'.");
+      
+      // Небольшая задержка перед переходом, чтобы логика выполнилась корректно
+      setTimeout(() => {
+        window.location.href = 'projects.html';
+      }, 100);
     });
   </script>
 </body>
+</html>
