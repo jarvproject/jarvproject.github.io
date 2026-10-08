@@ -1,21 +1,126 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Projects</title>
   <style>
+    /* Глобальные настройки шрифта и центрирования */
     * {
       font-family: "Ubuntu Mono", monospace;
       font-weight: 400;
       font-style: normal;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #0d1117; /* Глубокий темный фон */
+      color: #c9d1d9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Главный контейнер со списком */
+    .projects-container {
+      text-align: center;
+      padding: 40px 30px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .title {
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #58a6ff; /* Неоново-синий заголовок */
+    }
+
+    /* Вертикальный стек кнопок */
+    .button-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    /* Стилизация кнопок-проектов */
+    .project-btn {
+      font-size: 1.1rem;
+      color: #c9d1d9;
+      background-color: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Стрелочка на кнопке для красоты */
+    .project-btn::after {
+      content: "→";
+      color: #58a6ff;
+      transition: transform 0.2s;
+    }
+
+    /* Эффекты при наведении на проект */
+    .project-btn:hover {
+      background-color: #30363d;
+      border-color: #8b949e;
+      color: #ffffff;
+      transform: translateX(4px); /* Смещение вправо */
+    }
+
+    .project-btn:hover::after {
+      transform: translateX(3px);
+    }
+
+    /* Кнопка возврата назад */
+    .back-btn {
+      font-size: 0.9rem;
+      color: #8b949e;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+      text-decoration: underline;
+    }
+
+    .back-btn:hover {
+      color: #58a6ff;
     }
   </style>
 </head>
 <body>
-  <div>
-    <button href="https://github.com/jarvproject/easyfile">EasyFile</button>
-    <button href="https://github.com/jarvproject/jarvbrowser">JarvScript</button>
-    <button href="https://github.com/nbuhfy666/cscheats">CS CHEATS</button>
+
+  <div class="projects-container">
+    <h1 class="title">My Projects</h1>
+    
+    <div class="button-stack">
+      <!-- Кнопки с обработчиком перехода по ссылкам -->
+      <button class="project-btn" onclick="window.open('https://github.com/jarvproject/easyfile', '_blank')">EasyFile</button>
+      <button class="project-btn" onclick="window.open('https://github.com/jarvproject/jarvbrowser', '_blank')">JarvScript</button>
+      <button class="project-btn" onclick="window.open('https://github.com/nbuhfy666/cscheats', '_blank')">CS CHEATS</button>
+    </div>
+
+    <!-- Кнопка возврата на главную index.html -->
+    <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
   </div>
+
   <script>
     console.log("Started 'projects'.");
   </script>
 </body>
+</html>
